@@ -64,7 +64,7 @@ public class Main {
         System.out.println(mainMenu);
     }
 
-    static void addTransaction() throws SQLException {
+    static void addTransaction() {
         System.out.println("Type the name of the transaction:");
         String transactionName = scanner.nextLine();
         System.out.println("Type the value of the transaction:");
