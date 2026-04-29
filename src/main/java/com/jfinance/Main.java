@@ -22,7 +22,6 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         try{
-//            getConnection();
             connection = DriverManager.getConnection(url, user, password);
             createDB();
         } catch (SQLException e) {
@@ -33,7 +32,7 @@ public class Main {
 
         int menuMin = 1;
         int menuMax = 3;
-        loadMainMenu();
+        showMainMenu();
 
 
         while (true) {
@@ -50,11 +49,11 @@ public class Main {
                     System.exit(0);
             }
             option = 0;
-            loadMainMenu();
+            showMainMenu();
         }
     }
 
-    static void loadMainMenu() {
+    static void showMainMenu() {
         String mainMenu =
                   "====== JFinance ======="
                 + "\n Type an option"
