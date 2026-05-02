@@ -20,7 +20,7 @@ public class Main {
     private static final String user = "fellipe";
     private static final String password = "root";
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         try{
             connection = DriverManager.getConnection(url, user, password);
             createDB();
