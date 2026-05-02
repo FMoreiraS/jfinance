@@ -90,7 +90,12 @@ public class Main {
             connection.commit();
         } catch (SQLException e) {
             System.out.println("Insert failed. Transaction is being rolled back.");
-            connection.rollback();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                System.out.println("Rollback failed.");
+                System.out.println(ex.getMessage());
+            }
             e.printStackTrace();
         }
     }
@@ -120,8 +125,9 @@ public class Main {
         while(option < min || option > max) {
             try {
                 option = Integer.parseInt(scanner.nextLine());
-            } catch (InputMismatchException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.printf("Invalid option. It must be a number from %d to %d.\n", min, max);
+                option = 0;
             }
         }
         return option;
